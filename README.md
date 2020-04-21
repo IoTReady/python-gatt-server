@@ -25,7 +25,7 @@ Original README (see below) includes instructions for Ubuntu. For Arch Linux:
     - And, https://github.com/IoTReady/python-gatt-server/blob/master/gatt_server.py#L425 to edit a service
 - Run gatt_server_example.py which imports gatt_server and runs a loop
 - Restart bluetooth service every time you kill the script - otherwise advertisement kept failing for me. `sudo systemctl restart bluetooth`
-- Test with nRF Connect mobile app
+- Test with [nRF Connect mobile app](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&hl=en_IN)
 
 ## To Do
 
