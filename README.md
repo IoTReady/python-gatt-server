@@ -3,6 +3,41 @@ GATT is constructed out of one or more server devices (BLE peripherals) and a cl
 
 A GATT server is usually a small device such as a sensor, but for some use cases you might want to have a Linux computer such as a RPi used as a GATT server. This example is meant to demonstrate how this can be done.
 
+Forked from: https://github.com/Jumperr-labs/python-gatt-server
+
+## Installation
+
+Original README (see below) includes instructions for Ubuntu. For Arch Linux:
+
+    sudo pacman -S bluez python-gobject gobject-introspection python-cairo
+    sudo systemctl enable bluetooth
+    sudo systemctl start bluetooth
+    cd python-gatt-server
+    python3 -m venv venv
+    source venv/bin/activate
+    pip install PyGObject
+    python gatt_server_example.py
+
+## How To Use
+
+- Edit gatt_server.py and change dummy services and characteristics. 
+    - See, for instance, https://github.com/IoTReady/python-gatt-server/blob/master/gatt_server.py#L44 to disable services
+    - And, https://github.com/IoTReady/python-gatt-server/blob/master/gatt_server.py#L425 to edit a service
+- Run gatt_server_example.py which imports gatt_server and runs a loop
+- Restart bluetooth service every time you kill the script - otherwise advertisement kept failing for me.
+- Test with nRF Connect mobile app
+
+    sudo systemctl restart bluetooth
+
+## To Do
+
+- ~~Fork repo~~
+- ~~Remove heartbeat and battery services~~ and code
+- Create a sample service and 5-6 characteristics for easy customisation
+    - Remove the encrypted and secure characteristics unless needed.
+
+---
+# Original Instructions Follow
 
 ## Setup
 The instructions in this document were tested on Ubuntu 16.04.
